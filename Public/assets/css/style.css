@@ -157,3 +157,106 @@ input,textarea{width:100%;border:1px solid #eddcf5;border-radius:12px;padding:10
   .hero__title{font-size:40px}
   .cards-grid{grid-template-columns:1fr}
 }
+/* Additional styles for enhanced auth pages */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Enhanced error and success messages */
+.error-message {
+    background-color: #fee;
+    color: #c33;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    display: none;
+    text-align: center;
+    border-left: 4px solid #c33;
+}
+
+.success-message {
+    background-color: #efe;
+    color: #363;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    display: none;
+    text-align: center;
+    border-left: 4px solid #363;
+}
+
+/* Loading state for buttons */
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Smooth transitions for form elements */
+.form-input {
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    transform: translateY(-1px);
+}
+
+/* Enhanced auth container styles */
+.auth-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(242, 131, 175, 0.05), transparent);
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}/
+* Estilos específicos para el logo */
+.logo img, .brand img, .footer-logo img {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    object-fit: contain !important;
+    max-width: none !important;
+    border: none !important;
+    background: none !important;
+}
+
+/* Asegurar que el logo se vea en todos los navegadores */
+.logo, .brand, .footer-logo {
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+}
+
+/* Fix para imágenes que no cargan */
+.logo img[src*="logo.jpg"], 
+.brand img[src*="logo.jpg"], 
+.footer-logo img[src*="logo.jpg"] {
+    min-width: 35px;
+    min-height: 35px;
+    background-color: transparent;
+    border-radius: 8px;
+}
