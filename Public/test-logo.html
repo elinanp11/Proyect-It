@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Logo - P-Harmonia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo-test {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+        }
+        .logo-test img {
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>🕊️ Test del Logo P-Harmonia</h1>
+    
+    <div class="test-container">
+        <h2>Prueba de carga de imagen</h2>
+        
+        <div class="logo-test">
+            <strong>Tamaño 40px:</strong>
+            <img src="assets/img/logo.jpg" alt="Logo 40px" style="height: 40px; width: auto;">
+            <span>← Debería aparecer aquí</span>
+        </div>
+        
+        <div class="logo-test">
+            <strong>Tamaño 35px:</strong>
+            <img src="assets/img/logo.jpg" alt="Logo 35px" style="height: 35px; width: auto;">
+            <span>← Debería aparecer aquí</span>
+        </div>
+        
+        <div class="logo-test">
+            <strong>Tamaño original:</strong>
+            <img src="assets/img/logo.jpg" alt="Logo original" style="max-width: 200px;">
+            <span>← Debería aparecer aquí</span>
+        </div>
+    </div>
+    
+    <div class="test-container">
+        <h2>Información del archivo</h2>
+        <p><strong>Ruta:</strong> assets/img/logo.jpg</p>
+        <p><strong>Ubicación completa:</strong> Public/assets/img/logo.jpg</p>
+        <p><strong>Usado en:</strong> Todas las páginas de P-Harmonia</p>
+    </div>
+    
+    <div class="test-container">
+        <h2>Si no ves las imágenes:</h2>
+        <ol>
+            <li>Verifica que el archivo <code>logo.jpg</code> esté en <code>Public/assets/img/</code></li>
+            <li>Refresca la página (Ctrl+F5 o Cmd+Shift+R)</li>
+            <li>Abre las herramientas de desarrollador (F12) y revisa la consola</li>
+            <li>Verifica que el servidor esté sirviendo archivos desde la carpeta correcta</li>
+        </ol>
+    </div>
+    
+    <script>
+        // Verificar si las imágenes se cargan correctamente
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img[src*="logo.jpg"]');
+            
+            images.forEach((img, index) => {
+                img.onload = function() {
+                    console.log(`✅ Logo ${index + 1} cargado correctamente`);
+                    img.style.border = '2px solid green';
+                };
+                
+                img.onerror = function() {
+                    console.error(`❌ Error cargando logo ${index + 1}`);
+                    img.style.border = '2px solid red';
+                    img.alt = 'Error: No se pudo cargar la imagen';
+                };
+            });
+        });
+    </script>
+</body>
+</html>

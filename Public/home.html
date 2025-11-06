@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | P-Harmonia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="home.html">
+                <img src="assets/img/logo.jpg" alt="P-Harmonia Logo" style="height: 35px; width: auto; margin-right: 8px; vertical-align: middle;">
+                P-<span>Harmonia</span>
+            </a>
+
+            <nav>
+                <ul class="nav__list">
+                    <li><a href="bienestar.html">Bienestar</a></li>
+                    <li><a href="belleza.html">Belleza</a></li>
+                    <li><a href="fitness.html">Fitness</a></li>
+                    <li><a href="finanzas.html">Finanzas</a></li>
+                    <li><a href="moda.html">Moda</a></li>
+                    <li><a href="comunidad.html">Comunidad</a></li>
+                </ul>
+            </nav>
+
+            <div class="user-menu" data-user-menu style="display: none;">
+                <button class="user-menu__btn">
+                    <i class="fas fa-user-circle"></i>
+                    <span data-user-name></span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="user-menu__panel">
+                    <a href="profile.html"><i class="fas fa-user"></i> Mi perfil</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Configuración</a>
+                    <a href="#" data-logout><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+                </div>
+            </div>
+
+            <div data-login-link>
+                <a class="btn btn--ghost" href="login.html">Iniciar sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="grid-2">
+                    <div>
+                        <h1 class="hero__title">¡Bienvenida a tu espacio de bienestar!</h1>
+                        <p class="hero__subtitle">
+                            Descubre contenido personalizado para tu crecimiento personal,
+                            belleza, fitness y mucho más.
+                        </p>
+                        <div class="hero__quick">
+                            <a href="belleza.html" class="btn btn--primary">
+                                <i class="fas fa-spa"></i> Explorar Belleza
+                            </a>
+                            <a href="bienestar.html" class="btn btn--secondary">
+                                <i class="fas fa-heart"></i> Ver Bienestar
+                            </a>
+                        </div>
+
+                        <div class="hero__widgets">
+                            <div class="widget">
+                                <h3>Tip del día</h3>
+                                <p class="widget__text">Bebe al menos 8 vasos de agua para mantener tu piel hidratada ✨
+                                </p>
+                            </div>
+                            <div class="widget">
+                                <h3>Tu progreso</h3>
+                                <p class="widget__text">¡Has visitado 3 secciones esta semana! 🎉</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__art">
+                        <img src="https://images.unsplash.com/photo-1594824804732-ca8db7d1d9c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Bienestar y relajación">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h2>Explora nuestras categorías</h2>
+                    <p>Encuentra el contenido perfecto para ti</p>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3><i class="fas fa-spa" style="color: var(--rose-400);"></i> Belleza</h3>
+                        <p>Rutinas de skincare, maquillaje y cuidado personal para resaltar tu belleza natural.</p>
+                        <a href="belleza.html" class="btn btn--primary">Explorar</a>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-heart" style="color: var(--rose-400);"></i> Bienestar</h3>
+                        <p>Consejos para tu salud mental, meditación y crecimiento personal.</p>
+                        <a href="bienestar.html" class="btn btn--primary">Explorar</a>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fas fa-dumbbell" style="color: var(--rose-400);"></i> Fitness</h3>
+                        <p>Rutinas de ejercicio, nutrición y tips para mantenerte en forma.</p>
+                        <a href="fitness.html" class="btn btn--primary">Explorar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <h4>P-Harmonia</h4>
+                    <p>Tu espacio de crecimiento personal</p>
+                </div>
+                <div>
+                    <h4>Enlaces</h4>
+                    <ul class="clean">
+                        <li><a href="belleza.html">Belleza</a></li>
+                        <li><a href="bienestar.html">Bienestar</a></li>
+                        <li><a href="fitness.html">Fitness</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Soporte</h4>
+                    <ul class="clean">
+                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copy">&copy; 2024 P-Harmonia. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Update UI based on auth state
+            if (window.authSystem) {
+                window.authSystem.updateAuthUI();
+            }
+
+            // User menu toggle
+            const userMenuBtn = document.querySelector('.user-menu__btn');
+            const userMenu = document.querySelector('.user-menu');
+
+            if (userMenuBtn && userMenu) {
+                userMenuBtn.addEventListener('click', function () {
+                    userMenu.classList.toggle('is-open');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!userMenu.contains(e.target)) {
+                        userMenu.classList.remove('is-open');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
