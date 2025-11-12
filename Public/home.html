@@ -1,152 +1,718 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio | P-Harmonia</title>
+    <title>P-Harmonia - Tu espacio de bienestar</title>
+    <meta name="description" content="Bienestar, belleza, fitness, finanzas y comunidad para mujeres empoderadas. Descubre tu mejor versión con nosotros.">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    <script>
+        // Load header
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+                // Initialize any header scripts after loading
+                const script = document.createElement('script');
+                script.src = 'components/header.js';
+                document.body.appendChild(script);
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
+    
+    <style>
+        :root {
+            --tickle-me-pink: #F283AF;
+            --champagne: #FBF4EB;
+            --blush: #FBD9E5;
+            --cherry-blossom: #FBD9E5;
+            --raspberry-rose: #C43670;
+            --sunset: #F3CC97;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(251, 244, 235, 0.9), rgba(251, 244, 235, 0.9)), 
+                        url('https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            text-align: left;
+            color: var(--text-dark);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            max-width: 700px;
+            color: var(--raspberry-rose);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            color: var(--text-light);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 5rem 10%;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--raspberry-rose);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--tickle-me-pink);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .category-card {
+            background: var(--champagne);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--raspberry-rose);
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-card h3 {
+            margin-bottom: 1rem;
+            color: var(--raspberry-rose);
+        }
+
+        /* Footer */
+        .site-footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
+            color: #fff;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--tickle-me-pink), var(--raspberry-rose));
+        }
+
+        .footer-top {
+            padding: 5rem 0 3rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-about {
+            padding-right: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+        }
+
+        .footer-logo img {
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .footer-about-text {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--tickle-me-pink);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--tickle-me-pink);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a i {
+            font-size: 0.7rem;
+            color: var(--tickle-me-pink);
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--tickle-me-pink);
+            padding-left: 5px;
+        }
+
+        .footer-links a:hover i {
+            color: #fff;
+        }
+
+        .footer-newsletter p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--tickle-me-pink);
+            box-shadow: 0 0 0 2px rgba(242, 131, 175, 0.2);
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-form .btn {
+            white-space: nowrap;
+            padding: 0.8rem 1.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .payment-methods i {
+            transition: all 0.3s ease;
+        }
+
+        .payment-methods i:hover {
+            color: var(--tickle-me-pink);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-about {
+                grid-column: 1 / -1;
+                text-align: center;
+                padding-right: 0;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero {
+                text-align: center;
+                align-items: center;
+                padding: 0 5%;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="brand" href="home.html">
-                <img src="assets/img/logo.jpg" alt="P-Harmonia Logo" style="height: 35px; width: auto; margin-right: 8px; vertical-align: middle;">
-                P-<span>Harmonia</span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>¡Bienvenida a tu espacio de bienestar!</h1>
+        <p>Descubre contenido personalizado para tu crecimiento personal, belleza, fitness y mucho más.</p>
+        <div class="hero-actions">
+            <a href="belleza.html" class="btn btn-primary">
+                <i class="fas fa-spa"></i> Explorar Belleza
             </a>
+            <a href="bienestar.html" class="btn btn-ghost">
+                <i class="fas fa-heart"></i> Ver Bienestar
+            </a>
+        </div>
+    </section>
 
-            <nav>
-                <ul class="nav__list">
-                    <li><a href="bienestar.html">Bienestar</a></li>
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2 class="section-title">Explora nuestras categorías</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>Belleza</h3>
+                <p>Rutinas de skincare, maquillaje y cuidado personal para resaltar tu belleza natural.</p>
+                <a href="belleza.html" class="btn btn-primary" style="margin-top: 1rem;">Explorar</a>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Bienestar</h3>
+                <p>Consejos para tu salud mental, meditación y crecimiento personal.</p>
+                <a href="bienestar.html" class="btn btn-primary" style="margin-top: 1rem;">Explorar</a>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>Fitness</h3>
+                <p>Rutinas de ejercicio, nutrición y tips para mantenerte en forma.</p>
+                <a href="fitness.html" class="btn btn-primary" style="margin-top: 1rem;">Explorar</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="assets/img/logo.jpg" alt="P-Harmonia Logo">
+                    <span>P-Harmonia</span>
+                </div>
+                <p class="footer-tagline">Tu espacio de crecimiento personal</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Explorar</h4>
+                <ul class="footer-links">
                     <li><a href="belleza.html">Belleza</a></li>
+                    <li><a href="bienestar.html">Bienestar</a></li>
                     <li><a href="fitness.html">Fitness</a></li>
                     <li><a href="finanzas.html">Finanzas</a></li>
-                    <li><a href="moda.html">Moda</a></li>
-                    <li><a href="comunidad.html">Comunidad</a></li>
                 </ul>
-            </nav>
-
-            <div class="user-menu" data-user-menu style="display: none;">
-                <button class="user-menu__btn">
-                    <i class="fas fa-user-circle"></i>
-                    <span data-user-name></span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="user-menu__panel">
-                    <a href="profile.html"><i class="fas fa-user"></i> Mi perfil</a>
-                    <a href="settings.html"><i class="fas fa-cog"></i> Configuración</a>
-                    <a href="#" data-logout><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
-                </div>
             </div>
-
-            <div data-login-link>
-                <a class="btn btn--ghost" href="login.html">Iniciar sesión</a>
+            
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="terminos.html">Términos de Uso</a></li>
+                    <li><a href="cookies.html">Política de Cookies</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-envelope"></i> info@pharmonia.com</li>
+                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                </ul>
             </div>
         </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="grid-2">
-                    <div>
-                        <h1 class="hero__title">¡Bienvenida a tu espacio de bienestar!</h1>
-                        <p class="hero__subtitle">
-                            Descubre contenido personalizado para tu crecimiento personal,
-                            belleza, fitness y mucho más.
-                        </p>
-                        <div class="hero__quick">
-                            <a href="belleza.html" class="btn btn--primary">
-                                <i class="fas fa-spa"></i> Explorar Belleza
-                            </a>
-                            <a href="bienestar.html" class="btn btn--secondary">
-                                <i class="fas fa-heart"></i> Ver Bienestar
-                            </a>
-                        </div>
-
-                        <div class="hero__widgets">
-                            <div class="widget">
-                                <h3>Tip del día</h3>
-                                <p class="widget__text">Bebe al menos 8 vasos de agua para mantener tu piel hidratada ✨
-                                </p>
-                            </div>
-                            <div class="widget">
-                                <h3>Tu progreso</h3>
-                                <p class="widget__text">¡Has visitado 3 secciones esta semana! 🎉</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero__art">
-                        <img src="https://images.unsplash.com/photo-1594824804732-ca8db7d1d9c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Bienestar y relajación">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="section__header">
-                    <h2>Explora nuestras categorías</h2>
-                    <p>Encuentra el contenido perfecto para ti</p>
-                </div>
-
-                <div class="cards-grid">
-                    <div class="card">
-                        <h3><i class="fas fa-spa" style="color: var(--rose-400);"></i> Belleza</h3>
-                        <p>Rutinas de skincare, maquillaje y cuidado personal para resaltar tu belleza natural.</p>
-                        <a href="belleza.html" class="btn btn--primary">Explorar</a>
-                    </div>
-
-                    <div class="card">
-                        <h3><i class="fas fa-heart" style="color: var(--rose-400);"></i> Bienestar</h3>
-                        <p>Consejos para tu salud mental, meditación y crecimiento personal.</p>
-                        <a href="bienestar.html" class="btn btn--primary">Explorar</a>
-                    </div>
-
-                    <div class="card">
-                        <h3><i class="fas fa-dumbbell" style="color: var(--rose-400);"></i> Fitness</h3>
-                        <p>Rutinas de ejercicio, nutrición y tips para mantenerte en forma.</p>
-                        <a href="fitness.html" class="btn btn--primary">Explorar</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-inner">
-                <div>
-                    <h4>P-Harmonia</h4>
-                    <p>Tu espacio de crecimiento personal</p>
-                </div>
-                <div>
-                    <h4>Enlaces</h4>
-                    <ul class="clean">
-                        <li><a href="belleza.html">Belleza</a></li>
-                        <li><a href="bienestar.html">Bienestar</a></li>
-                        <li><a href="fitness.html">Fitness</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Soporte</h4>
-                    <ul class="clean">
-                        <li><a href="#">Ayuda</a></li>
-                        <li><a href="#">Contacto</a></li>
-                        <li><a href="#">Privacidad</a></li>
-                    </ul>
-                </div>
-            </div>
-            <p class="copy">&copy; 2024 P-Harmonia. Todos los derechos reservados.</p>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 P-Harmonia. Todos los derechos reservados.</p>
         </div>
     </footer>
+    
+    <style>
+    /* Main Footer Styles */
+    .main-footer {
+        background: #2c3e50;
+        color: #fff;
+        padding: 2.5rem 0 0;
+        font-size: 0.9rem;
+        position: relative;
+        margin-top: 3rem;
+    }
+
+    .main-footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--tickle-me-pink), var(--raspberry-rose));
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+    }
+
+    .footer-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .footer-logo img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .footer-tagline {
+        color: #bdc3c7;
+        margin-bottom: 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 12px;
+    }
+
+    .social-icon {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+        background: var(--tickle-me-pink);
+        transform: translateY(-2px);
+    }
+
+    .footer-section h4 {
+        color: #fff;
+        margin-bottom: 1.2rem;
+        font-size: 1.1rem;
+        position: relative;
+        padding-bottom: 8px;
+    }
+
+    .footer-section h4::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--tickle-me-pink);
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.6rem;
+    }
+
+    .footer-links a {
+        color: #bdc3c7;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .footer-links a:hover {
+        color: var(--tickle-me-pink);
+        transform: translateX(3px);
+    }
+
+    .footer-contact li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.6rem;
+        color: #bdc3c7;
+    }
+
+    .footer-contact i {
+        color: var(--tickle-me-pink);
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        background: rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .footer-bottom p {
+        margin: 0;
+        color: #95a5a6;
+        font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .footer-section h4::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .footer-section {
+            text-align: center;
+        }
+        
+        .footer-logo {
+            justify-content: center;
+        }
+        
+        .social-icons {
+            justify-content: center;
+        }
+        
+        .footer-links a:hover {
+            transform: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+    }
+    </style>
 
     <script src="assets/js/auth.js"></script>
     <script>
@@ -175,5 +741,4 @@
         });
     </script>
 </body>
-
 </html>

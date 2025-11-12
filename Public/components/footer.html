@@ -1,0 +1,220 @@
+<!-- Main Footer for all pages -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <img src="assets/img/logo.jpg" alt="P-Harmonia Logo">
+                <span>P-Harmonia</span>
+            </div>
+            <p class="footer-tagline">Tu espacio de crecimiento personal</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Explorar</h4>
+            <ul class="footer-links">
+                <li><a href="belleza.html">Belleza</a></li>
+                <li><a href="bienestar.html">Bienestar</a></li>
+                <li><a href="fitness.html">Fitness</a></li>
+                <li><a href="finanzas.html">Finanzas</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Legal</h4>
+            <ul class="footer-links">
+                <li><a href="privacidad.html">Política de Privacidad</a></li>
+                <li><a href="terminos.html">Términos de Uso</a></li>
+                <li><a href="cookies.html">Política de Cookies</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Contacto</h4>
+            <ul class="footer-contact">
+                <li><i class="fas fa-envelope"></i> info@pharmonia.com</li>
+                <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2024 P-Harmonia. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<style>
+/* Main Footer Styles */
+.main-footer {
+    background: #2c3e50;
+    color: #fff;
+    padding: 2.5rem 0 0;
+    font-size: 0.9rem;
+    position: relative;
+    margin-top: 3rem;
+}
+
+.main-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--tickle-me-pink), var(--raspberry-rose));
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section {
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.footer-logo img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.footer-tagline {
+    color: #bdc3c7;
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--tickle-me-pink);
+    transform: translateY(-2px);
+}
+
+.footer-section h4 {
+    color: #fff;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--tickle-me-pink);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--tickle-me-pink);
+    transform: translateX(3px);
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    color: #bdc3c7;
+}
+
+.footer-contact i {
+    color: var(--tickle-me-pink);
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #95a5a6;
+    font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+}
+</style>
